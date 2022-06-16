@@ -21,4 +21,10 @@ public class Group extends BaseModel {
     private User createdBy;
     @OneToMany
     private List<Expense> expenses;
+    // G : E
+    // 1   m
+    // 1   1
+    // 1 : m
+    //   expenses
+    //   |         | group_id
 }

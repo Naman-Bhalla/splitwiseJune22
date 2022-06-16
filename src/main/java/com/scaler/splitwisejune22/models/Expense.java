@@ -15,7 +15,7 @@ import java.util.List;
 public class Expense extends BaseModel {
     private double amount;
     @ManyToOne
-    private User createdby;
+    private User createdBy;
     private String description;
     private Date createdAt;
     @ManyToOne
