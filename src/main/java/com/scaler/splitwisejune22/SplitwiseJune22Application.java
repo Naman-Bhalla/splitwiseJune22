@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
+@EnableJpaAuditing
 public class SplitwiseJune22Application implements CommandLineRunner {
     @Autowired
     private CommandRegistry commandRegistry;
@@ -27,8 +29,8 @@ public class SplitwiseJune22Application implements CommandLineRunner {
         commandRegistry.registerCommand(registerUserCommand);
         commandRegistry.registerCommand(updateProfileCommand);
 
-        String input = "u1 UpdateProfile robinchwan";
-
+//        String input = "Register namanbhalla 999 password";
+        String input = "5 UpdateProfile strongpassword";
         commandRegistry.executeCommandLine(input);
 //        while (true) {
 //            String input = "INPUT FROM COMMAND LINE";

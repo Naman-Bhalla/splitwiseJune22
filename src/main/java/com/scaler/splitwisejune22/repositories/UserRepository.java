@@ -20,6 +20,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
      * @return
      */
     User save(User user);
+
+    User findUserById(Long id);
 }
 
 // find users whose username 0starts with u

@@ -25,4 +25,11 @@ public class UserService {
 
         return user1;
     }
+
+    public User updateProfile(Long userId, String newPassword) {
+        User user = userRepository.findUserById(userId);
+        user.setHashedPassword(newPassword);
+        User savedUser = userRepository.save(user);
+        return savedUser;
+    }
 }
