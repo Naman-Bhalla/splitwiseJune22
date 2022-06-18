@@ -5,7 +5,7 @@ import com.scaler.splitwisejune22.dtos.RegisterUserResponseDto;
 import com.scaler.splitwisejune22.dtos.UpdateProfileRequestDto;
 import com.scaler.splitwisejune22.dtos.UpdateProfileResponseDto;
 import com.scaler.splitwisejune22.models.User;
-import com.scaler.splitwisejune22.services.UserService;
+import com.scaler.splitwisejune22.services.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -40,4 +40,5 @@ public class UserController {
         response.setUser(user);
         return response;
     }
+
 }

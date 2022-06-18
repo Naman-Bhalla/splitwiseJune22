@@ -1,4 +1,4 @@
-package com.scaler.splitwisejune22.services;
+package com.scaler.splitwisejune22.services.user;
 
 import com.scaler.splitwisejune22.models.User;
 import com.scaler.splitwisejune22.repositories.UserRepository;
