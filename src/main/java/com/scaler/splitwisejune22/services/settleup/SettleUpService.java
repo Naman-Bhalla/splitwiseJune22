@@ -62,4 +62,6 @@ public class SettleUpService {
 //  search([AccountID]) -> List<Data>
 // HDFC /search?ac_ids=[123, 456]
 //  /search?ac_ids=[123, 491]&sec_token=""
+//  /groups?user=123
+//  /users
 
