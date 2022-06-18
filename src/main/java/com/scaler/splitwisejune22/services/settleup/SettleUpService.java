@@ -1,9 +1,6 @@
 package com.scaler.splitwisejune22.services.settleup;
 
-import com.scaler.splitwisejune22.models.Expense;
-import com.scaler.splitwisejune22.models.ExpenseOwingUser;
-import com.scaler.splitwisejune22.models.ExpensePayingUser;
-import com.scaler.splitwisejune22.models.Group;
+import com.scaler.splitwisejune22.models.*;
 import com.scaler.splitwisejune22.repositories.ExpenseOwingUserRepository;
 import com.scaler.splitwisejune22.repositories.ExpensePayingUserRepository;
 import com.scaler.splitwisejune22.repositories.GroupRepository;
