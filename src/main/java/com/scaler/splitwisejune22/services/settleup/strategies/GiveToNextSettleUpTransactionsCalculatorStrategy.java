@@ -6,6 +6,9 @@ import com.scaler.splitwisejune22.models.ExpenseOwingUser;
 import com.scaler.splitwisejune22.models.ExpensePayingUser;
 import com.scaler.splitwisejune22.models.User;
 import com.scaler.splitwisejune22.services.settleup.Transaction;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,13 +17,14 @@ import java.util.List;
 import java.util.Map;
 
 @Service
+@Qualifier("giveToNextSettleUpStrategy")
 public class GiveToNextSettleUpTransactionsCalculatorStrategy
     implements SettleUpTransactionsCalculatorStrategy {
 
     @Override
     public List<Transaction> getTransactions(List<ExpensePayingUser> expensePayingUsers,
                                              List<ExpenseOwingUser> expenseOwingUsers) {
-        Map<User, Double> extraAmounts = new HashMap<>();
+        Map<User, Double> extraAmounts = new HashMap<>(); // User: Amount
 
         for (ExpensePayingUser expensePayingUser: expensePayingUsers) {
             if (!extraAmounts.containsKey(expensePayingUser.getUser())) {

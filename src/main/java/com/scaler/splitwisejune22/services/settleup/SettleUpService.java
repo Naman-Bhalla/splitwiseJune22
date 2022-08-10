@@ -6,6 +6,7 @@ import com.scaler.splitwisejune22.repositories.ExpensePayingUserRepository;
 import com.scaler.splitwisejune22.repositories.GroupRepository;
 import com.scaler.splitwisejune22.services.settleup.strategies.SettleUpTransactionsCalculatorStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,7 +15,13 @@ import java.util.Optional;
 
 @Service
 public class SettleUpService {
+    @Autowired
+    @Qualifier("giveToNextSettleUpStrategy")
     private SettleUpTransactionsCalculatorStrategy settleUpTransactionsCalculatorStrategy;
+
+    @Autowired
+    @Qualifier("minMaxStrategy")
+    private SettleUpTransactionsCalculatorStrategy minMaxSettleUpStrategy;
     private GroupRepository groupRepository;
     private ExpenseOwingUserRepository expenseOwingUserRepository;
     private ExpensePayingUserRepository expensePayingUserRepository;
@@ -28,7 +35,7 @@ public class SettleUpService {
         return null;
     }
 
-    public List<Transaction> settleUpGroup(Long groupId) {
+    public List<Transaction> settleUpGroup(Long groupId, String method) {
 
         // Algo:
         // settleUp(group_id) {
@@ -52,6 +59,14 @@ public class SettleUpService {
             expensePayingUsers.addAll(expensePayingUserRepository.findAllByExpense(expense));
             expenseOwingUsers.addAll(expenseOwingUserRepository.findAllByExpense(expense));
         }
+
+        if (method == "minMax") {
+            return minMaxSettleUpStrategy.getTransactions(
+                    expensePayingUsers,
+                    expenseOwingUsers
+            );
+        }
+
         return settleUpTransactionsCalculatorStrategy.getTransactions(
                 expensePayingUsers,
                 expenseOwingUsers
