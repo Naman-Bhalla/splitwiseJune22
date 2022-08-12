@@ -8,8 +8,12 @@ import com.scaler.splitwisejune22.models.User;
 import com.scaler.splitwisejune22.services.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class UserController {
     private UserService userService;
 
@@ -18,7 +22,9 @@ public class UserController {
         this.userService = userService;
     }
 
-    public RegisterUserResponseDto registerUser(RegisterUserRequestDto request) {
+    // /users/get/{id} -> @PathVariable
+    @PostMapping("/users/register")
+    public RegisterUserResponseDto registerUser(@RequestBody RegisterUserRequestDto request) {
         User user = userService.registerUser(
                 request.getPhoneNumber(),
                 request.getPassword(),
@@ -30,7 +36,8 @@ public class UserController {
         return registerUserResponseDto;
     }
 
-    public UpdateProfileResponseDto updateProfile(UpdateProfileRequestDto request) {
+    @PutMapping("/users/update")
+    public UpdateProfileResponseDto updateProfile(@RequestBody UpdateProfileRequestDto request) {
         User user = userService.updateProfile(
                 request.getUserId(),
                 request.getNewPassword()

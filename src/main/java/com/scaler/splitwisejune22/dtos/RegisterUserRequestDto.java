@@ -10,3 +10,9 @@ public class RegisterUserRequestDto {
     private String password;
     private String phoneNumber;
 }
+
+// {
+//    username: "Sanket",
+//    password: "verycool",
+//    phoneNumber: "12345",
+// }

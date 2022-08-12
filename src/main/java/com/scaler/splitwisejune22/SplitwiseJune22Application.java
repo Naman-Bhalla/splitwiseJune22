@@ -17,7 +17,7 @@ import java.util.Scanner;
 
 @SpringBootApplication
 @EnableJpaAuditing
-public class SplitwiseJune22Application implements CommandLineRunner {
+public class SplitwiseJune22Application {
 //    @Autowired
 //    private CommandRegistry commandRegistry;
 //    @Autowired
@@ -50,14 +50,14 @@ public class SplitwiseJune22Application implements CommandLineRunner {
 ////        }
 //    }
 
-    @Override
-    public void run(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-
-        while (true) {
-            String input = scanner.nextLine();
-
-            commandRegistry.execute(input);
-        }
-    }
+//    @Override
+//    public void run(String[] args) throws Exception {
+//        Scanner scanner = new Scanner(System.in);
+//
+//        while (true) {
+//            String input = scanner.nextLine();
+//
+//            commandRegistry.execute(input);
+//        }
+//    }
 }
