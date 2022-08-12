@@ -20,7 +20,6 @@ public class SettleUpService {
     private SettleUpTransactionsCalculatorStrategy settleUpTransactionsCalculatorStrategy;
 
     @Autowired
-    @Qualifier("minMaxStrategy")
     private SettleUpTransactionsCalculatorStrategy minMaxSettleUpStrategy;
     private GroupRepository groupRepository;
     private ExpenseOwingUserRepository expenseOwingUserRepository;

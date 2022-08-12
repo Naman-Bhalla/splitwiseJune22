@@ -1,20 +1,16 @@
-package com.scaler.splitwisejune22.commands;
+package com.scaler.splitwisejune22.commandsOld;
 
-import com.scaler.splitwisejune22.commandsOld.CommandKeywords;
 import com.scaler.splitwisejune22.controllers.UserController;
 import com.scaler.splitwisejune22.dtos.RegisterUserRequestDto;
 import com.scaler.splitwisejune22.dtos.RegisterUserResponseDto;
-import com.scaler.splitwisejune22.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
 
-@Component
-public class  RegisterUserCommand implements Command {
+//@Service
+public class RegisterUserCommand implements Command {
     private UserController userController;
 
     @Autowired
@@ -23,25 +19,26 @@ public class  RegisterUserCommand implements Command {
     }
 
     @Override
-    public boolean canExecute(String input) {
-        // Register vinsmokesanji 003 namisswwaann
-        // ["Register", "vinsmokesanji", "003", "namisswwaann"]
-        List<String> params = Arrays.stream(input.split(" ")).toList();
+    public boolean parse(String commandLine) {
+        List<String> commandTokens = Arrays.stream(commandLine.split(" ")).toList();
 
-        if (params.size() != 4) {
+        if (commandTokens.size() != 4) {
+            System.out.println("This is not a Register User command");
             return false;
         }
 
-        if (!params.get(0).equals(CommandKeywords.REGISTER_USER_COMMAND)) {
+        if (!commandTokens.get(0).equals(CommandKeywords.REGISTER_USER_COMMAND)) {
+            System.out.println("This is not a Register User command");
             return false;
         }
 
+        System.out.println("This is a Register User command");
         return true;
     }
 
     @Override
-    public void execute(String input) {
-        List<String> commandTokens = Arrays.stream(input.split(" ")).toList();
+    public void execute(String commandLine) {
+        List<String> commandTokens = Arrays.stream(commandLine.split(" ")).toList();
         String username = commandTokens.get(1);
         String phoneNumber = commandTokens.get(2);
         String password = commandTokens.get(3);
@@ -54,6 +51,5 @@ public class  RegisterUserCommand implements Command {
         RegisterUserResponseDto response = userController.registerUser(registerUserRequestDto);
 
         System.out.println(response.getUser());
-        System.out.println("User Registered");
     }
 }

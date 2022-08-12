@@ -1,7 +1,6 @@
-package com.scaler.splitwisejune22.commands.registry;
+package com.scaler.splitwisejune22.commandsOld.registry;
 
-import com.scaler.splitwisejune22.commands.Command;
-import com.scaler.splitwisejune22.commands.CommandKeywords;
+import com.scaler.splitwisejune22.commandsOld.Command;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

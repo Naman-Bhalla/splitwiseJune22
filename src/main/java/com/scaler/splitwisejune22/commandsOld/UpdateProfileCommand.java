@@ -1,4 +1,4 @@
-package com.scaler.splitwisejune22.commands;
+package com.scaler.splitwisejune22.commandsOld;
 
 import com.scaler.splitwisejune22.controllers.UserController;
 import com.scaler.splitwisejune22.dtos.UpdateProfileRequestDto;

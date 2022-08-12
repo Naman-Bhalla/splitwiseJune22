@@ -17,7 +17,7 @@ public interface GroupRepository extends JpaRepository<Group, Long> {
 
 
 
-    List<Group> findAllByParticipantsContaining(List<User> users);
+//    List<Group> findAllByParticipantsContaining(List<User> users);
     // select * from groups
     // where participants in ()
 

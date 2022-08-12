@@ -1,6 +1,6 @@
-package com.scaler.splitwisejune22.commands.registry;
+package com.scaler.splitwisejune22.commandsOld.registry;
 
-import com.scaler.splitwisejune22.commands.Command;
+import com.scaler.splitwisejune22.commandsOld.Command;
 
 public interface CommandRegistry {
 
